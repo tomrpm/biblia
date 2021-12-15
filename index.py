@@ -1,6 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <body>
+from bottle import request, route, template
+
+@route('/hello')
+def hello():
+    name = request.cookies.username or 'Guest'
+    return template('Hello {{name}}', name=name)
+
     <h1 style="color: #06c1ff;">DEUS SEJA LOUVADO!!!</h1>
     <h1 style="color: #2e6c80;">Receba uma mensagem do senhor:</h1>
     <h2 style="color: #2e6c80;"><a href="https://www.abibliadigital.com.br/api/verses/nvi/random" style="background-color: #2b2301; color: #fff; padding: 3px 10px; font-weight: bold; border-radius: 5px;">Clique aqui</a></h2>
@@ -19,6 +23,5 @@
          <option value="https://www.abibliadigital.com.br/api/verses/nvi/ex/random">Exôdo</option>
          <option value="https://www.abibliadigital.com.br/api/verses/nvi/gn/random">Gênesis</option>
     </select>  
-</body>
-</html>
+
  
